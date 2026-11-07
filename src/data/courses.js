@@ -1,0 +1,40 @@
+// Plataformas com cursos gratuitos (ou com conteúdo gratuito). Confira condições atualizadas em cada site.
+export const PROVIDERS = {
+  dio: { name: 'DIO', url: 'https://www.dio.me/bootcamp', note: 'Bootcamps gratuitos com empresas parceiras' },
+  ev: { name: 'Fundação Bradesco · Escola Virtual', url: 'https://www.ev.org.br', note: 'Cursos gratuitos com certificado' },
+  cev: { name: 'Curso em Vídeo', url: 'https://www.cursoemvideo.com', note: 'Aulas gratuitas em português' },
+  mslearn: { name: 'Microsoft Learn', url: 'https://learn.microsoft.com/pt-br/training/', note: 'Trilhas oficiais gratuitas' },
+  gcsb: { name: 'Google Cloud Skills Boost', url: 'https://www.cloudskillsboost.google', note: 'Laboratórios e trilhas de nuvem' },
+  aws: { name: 'AWS Skill Builder', url: 'https://skillbuilder.aws', note: 'Centenas de cursos gratuitos de nuvem' },
+  kaggle: { name: 'Kaggle Learn', url: 'https://www.kaggle.com/learn', note: 'Microcursos práticos de dados' },
+  fcc: { name: 'freeCodeCamp', url: 'https://www.freecodecamp.org/learn', note: 'Certificações gratuitas de programação' },
+  netacad: { name: 'Cisco Networking Academy', url: 'https://www.netacad.com', note: 'Redes e cibersegurança' },
+  thm: { name: 'TryHackMe', url: 'https://tryhackme.com', note: 'Laboratórios de segurança (salas gratuitas)' },
+  dlai: { name: 'DeepLearning.AI', url: 'https://www.deeplearning.ai/short-courses/', note: 'Cursos curtos gratuitos de IA' },
+  ibm: { name: 'IBM SkillsBuild', url: 'https://skillsbuild.org', note: 'Tecnologia e carreira, com selos' },
+  evg: { name: 'Escola Virtual.Gov', url: 'https://www.escolavirtual.gov.br', note: 'Cursos públicos gratuitos' },
+  tau: { name: 'Test Automation University', url: 'https://testautomationu.applitools.com', note: 'Automação de testes gratuita' },
+  dtc: { name: 'DataTalksClub Zoomcamp', url: 'https://github.com/DataTalksClub/data-engineering-zoomcamp', note: 'Engenharia de dados, aberto' },
+  flutter: { name: 'Flutter (documentação oficial)', url: 'https://docs.flutter.dev/get-started', note: 'Codelabs gratuitos' },
+  android: { name: 'Android Developers', url: 'https://developer.android.com/courses', note: 'Cursos oficiais gratuitos' },
+  figma: { name: 'Figma Learn', url: 'https://help.figma.com', note: 'Tutoriais oficiais do Figma' },
+  scrum: { name: 'Scrum Guides', url: 'https://scrumguides.org', note: 'Guia oficial do Scrum, gratuito' },
+  atlassian: { name: 'Atlassian Agile Coach', url: 'https://www.atlassian.com/agile', note: 'Guias de agilidade e Kanban' },
+  skillshop: { name: 'Google Skillshop', url: 'https://skillshop.withgoogle.com', note: 'Google Analytics e métricas' },
+};
+
+// O que estudar em cada plataforma, por classe
+export const COURSES = {
+  artifice: [['dlai', 'Prompts, RAG e agentes de IA'], ['dio', 'Bootcamps de IA e Python'], ['mslearn', 'Fundamentos de IA no Azure'], ['kaggle', 'Python e Pandas']],
+  oraculo: [['kaggle', 'Pandas, visualização e Machine Learning'], ['ev', 'Excel e análise de dados'], ['mslearn', 'Power BI (trilha oficial)'], ['dio', 'Bootcamps de análise de dados']],
+  ilusionista: [['fcc', 'Design Web Responsivo e JavaScript'], ['cev', 'HTML5, CSS3 e JavaScript'], ['dio', 'Bootcamps de front-end'], ['mslearn', 'Primeiros passos com desenvolvimento web']],
+  ferreiro: [['cev', 'Lógica, Python e Java'], ['fcc', 'APIs e back-end'], ['dio', 'Bootcamps de Java, .NET e Node.js'], ['aws', 'Fundamentos de nuvem para devs']],
+  guardiao: [['netacad', 'Introdução à Cibersegurança'], ['thm', 'Trilhas iniciantes de segurança'], ['ibm', 'Fundamentos de cibersegurança'], ['evg', 'Segurança da informação']],
+  arquiteto: [['aws', 'AWS Cloud Practitioner Essentials'], ['mslearn', 'Fundamentos do Azure (AZ-900)'], ['gcsb', 'Trilhas de Google Cloud'], ['dio', 'Bootcamps de DevOps e cloud']],
+  bardo: [['skillshop', 'Google Analytics e métricas'], ['ev', 'Gestão de projetos e negócios'], ['ibm', 'Design Thinking e produto'], ['atlassian', 'Roadmaps e produto ágil']],
+  alquimista: [['dtc', 'Data Engineering Zoomcamp'], ['kaggle', 'SQL intermediário e avançado'], ['gcsb', 'BigQuery e pipelines'], ['dio', 'Bootcamps de engenharia de dados']],
+  inspetor: [['tau', 'Cypress, Playwright e Selenium'], ['dio', 'Bootcamps de QA e testes'], ['ev', 'Qualidade de software'], ['fcc', 'JavaScript para automação']],
+  mensageiro: [['flutter', 'Seu primeiro app em Flutter'], ['android', 'Android Basics com Kotlin'], ['dio', 'Bootcamps de mobile'], ['cev', 'Lógica e Dart/JavaScript']],
+  vidente: [['figma', 'Figma do zero'], ['ibm', 'Design Thinking'], ['ev', 'Design e experiência do usuário'], ['fcc', 'Acessibilidade e HTML/CSS']],
+  mestre: [['scrum', 'Guia do Scrum (leitura oficial)'], ['atlassian', 'Kanban, Scrum e métricas ágeis'], ['ev', 'Gestão de equipes e projetos'], ['evg', 'Gestão ágil no setor público']],
+};

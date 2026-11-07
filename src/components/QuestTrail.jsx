@@ -3,6 +3,9 @@ import { CLASS_BY_ID } from '../data/classes.js';
 import { TRAILS } from '../data/trails.js';
 import { load, save } from '../lib/storage.js';
 import { play } from '../lib/sound.js';
+import Courses from './Courses.jsx';
+import { AdSlot } from './Legal.jsx';
+import { CONFIG } from '../lib/backend.js';
 
 const CHEERS = [
   'Primeira insígnia conquistada! Todo mestre já foi aprendiz.',
@@ -93,6 +96,8 @@ export default function QuestTrail({ classId, onBack }) {
           );
         })}
       </ol>
+      <div className="mt-6"><Courses classId={classId} /></div>
+      <AdSlot slot={CONFIG.adSlots.trail} />
     </section>
   );
 }

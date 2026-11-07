@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { PixelHero } from './PixelArt.jsx';
 
 export const FORMATS = {
   vertical: { w: 1080, h: 1920, label: 'Vertical 1080×1920 (Stories, Reels, Shorts)' },
@@ -7,7 +8,7 @@ export const FORMATS = {
 };
 
 // Arte de exportação renderizada fora da tela. Somente estilos inline em hex.
-const ShareArt = forwardRef(function ShareArt({ format, name, cls, sub, attributes, url }, ref) {
+const ShareArt = forwardRef(function ShareArt({ format, name, cls, sub, attributes, avatar, url }, ref) {
   const { w, h } = FORMATS[format];
   const u = Math.min(w, h) / 1080;
   const horiz = w > h;
@@ -38,7 +39,7 @@ const ShareArt = forwardRef(function ShareArt({ format, name, cls, sub, attribut
               fontSize: (vert ? 180 : 140) * u, border: `${8 * u}px solid ${cls.color}`, background: 'radial-gradient(circle, #4b2f80, #1a1438)',
             }}
           >
-            {cls.icon}
+            <PixelHero avatar={avatar} robe={cls.color} size={(vert ? 150 : 115) * u} alt="" />
           </div>
         </div>
         <div style={{ maxWidth: horiz ? 620 : 900 * u }}>

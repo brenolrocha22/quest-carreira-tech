@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "node scripts/check-classes.mjs"
+    "check": "node scripts/check-classes.mjs",
+    "art": "node scripts/generate-art.mjs"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",

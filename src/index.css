@@ -18,7 +18,6 @@
 html { color-scheme: dark; }
 body {
   margin: 0; min-height: 100vh; color: #f1eefc; font-family: var(--font-sans);
-  background: radial-gradient(ellipse at top, #2a1a4a 0%, #15122f 45%, #0b0a1f 100%) fixed;
   background-color: #0b0a1f;
 }
 :focus-visible { outline: 3px solid #ffd98a; outline-offset: 3px; border-radius: 6px; }
@@ -111,7 +110,7 @@ body {
 .flip-back { transform: rotateY(180deg); }
 @keyframes flip { from { transform: rotateY(0) scale(.9); } 60% { transform: rotateY(200deg) scale(1.05); } to { transform: rotateY(180deg) scale(1); } }
 
-.particles span {
+.particles-off span {
   position: fixed; bottom: -10px; width: 4px; height: 4px; border-radius: 50%;
   background: #ffd98a; box-shadow: 0 0 8px #ffd98a; opacity: 0; pointer-events: none;
   animation: rise linear infinite;
@@ -125,3 +124,50 @@ body {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .particles { display: none; }
 }
+
+/* Cenário pixelado */
+.scene { position: fixed; inset: 0; z-index: 0; background-size: cover; background-position: center bottom; image-rendering: pixelated; }
+.scene-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,10,31,.55), rgba(11,10,31,.9)); transition: opacity .6s; }
+.pixelated { image-rendering: pixelated; image-rendering: crisp-edges; }
+.hero-bob { animation: bob 2.4s ease-in-out infinite; filter: drop-shadow(0 4px 0 rgba(0,0,0,.35)); }
+.hero-bob:nth-child(2n) { animation-delay: .6s; }
+@keyframes bob { 50% { transform: translateY(-5px); } }
+.swatch { width: 1.9rem; height: 1.9rem; border-radius: 8px; border: 2px solid #6b4f1d; cursor: pointer; transition: transform .15s; }
+.swatch:hover { transform: scale(1.1); }
+.swatch[aria-pressed="true"] { border-color: #ffd98a; box-shadow: 0 0 0 2px #0b0a1f, 0 0 0 4px #ffd98a; }
+.chip[aria-pressed] { transition: background .2s, border-color .2s; }
+
+/* Card colecionável estilo medieval-futurista (somente hex/rgba) */
+.qc-frame { border-radius: 14px; padding: 7px; background: linear-gradient(135deg, #f7d98b, #8a6420 25%, #ffe9b8 50%, #6b4a14 75%, #e6c27a); box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 1px #2bb8b0; }
+.qc-inner { position: relative; border-radius: 9px; padding: 1.1rem; color: #f1eefc; font-size: .85rem; background: linear-gradient(180deg, #120d26, #0d0b1f); border: 2px solid #2bb8b0; }
+.qc-gem { position: absolute; width: 18px; height: 18px; transform: rotate(45deg); background: radial-gradient(circle, #a0fff7, #2bb8b0 60%, #0d5c58); border: 2px solid #e6c27a; box-shadow: 0 0 12px #5ff5e8; }
+.qc-tl { top: 6px; left: 6px; } .qc-tr { top: 6px; right: 6px; } .qc-bl { bottom: 6px; left: 6px; } .qc-br { bottom: 6px; right: 6px; }
+.qc-title { font-family: var(--font-display); font-weight: 900; text-align: center; color: #e6c27a; font-size: clamp(1.7rem, 6vw, 3.2rem); line-height: 1.25; margin-bottom: .5rem; letter-spacing: .02em; text-shadow: 0 3px 0 #5a3d10, 0 0 24px rgba(230,194,122,.4); }
+.qc-player { width: fit-content; margin: .4rem auto .8rem; padding: .25rem 1.2rem; border-radius: 8px; color: #5ff5e8; font-weight: 700; background: #0b1530; border: 1px solid #b8892f; }
+.qc-player b { color: #a0fff7; }
+.qc-art { position: relative; height: 230px; border-radius: 10px; border: 2px solid #b8892f; background-size: cover; background-position: center bottom; image-rendering: pixelated; display: flex; align-items: flex-end; justify-content: center; gap: clamp(.5rem, 6vw, 2.5rem); padding-bottom: 14px; overflow: hidden; }
+.qc-ring { position: absolute; left: 50%; top: 50%; width: 180px; height: 180px; margin: -90px 0 0 -90px; border-radius: 50%; border: 3px solid; opacity: .7; }
+.qc-hero { position: relative; filter: drop-shadow(0 6px 0 rgba(0,0,0,.45)); }
+.qc-companion { position: relative; font-size: clamp(56px, 14vw, 88px); line-height: 1; }
+.qc-box { margin-top: .8rem; padding: .7rem 1rem; border-radius: 10px; background: #100c24; border: 1px solid #b8892f; line-height: 1.5; }
+.qc-emblem { flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; font-size: 26px; border: 2px solid; background: #1d1640; }
+.qc-col { margin-top: .8rem; padding: .8rem; border-radius: 10px; background: #0f0b22; border: 1px solid #8a6420; line-height: 1.35; }
+.qc-h { font-family: var(--font-display); font-weight: 700; text-align: center; color: #e6c27a; margin-bottom: .6rem; font-size: .95rem; border-bottom: 1px solid #6b4f1d; padding-bottom: .4rem; }
+.qc-ico { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid #b8892f; background: #1d1640; font-size: 14px; }
+.qc-num { font-family: var(--font-display); font-size: 1.5rem; color: #5ff5e8; min-width: 1.6rem; text-align: right; }
+.qc-footer { margin-top: .8rem; padding: .7rem 1rem; border-radius: 10px; text-align: center; background: linear-gradient(90deg, #1a1236, #2a1d0c, #1a1236); border: 2px solid #b8892f; }
+.qc-next { font-family: var(--font-display); font-weight: 700; color: #e6c27a; font-size: clamp(1rem, 3vw, 1.5rem); }
+
+/* Card v2 — aproximação do exemplo (ilustração anime + moldura ornamentada) */
+.qc-inner { padding: 1.1rem 1.4rem; background: radial-gradient(ellipse at 50% 30%, #2a1650 0%, #120d26 55%, #0b0918 100%); }
+.qc-rail { position: absolute; top: 40px; bottom: 40px; width: 4px; border-radius: 4px; background: linear-gradient(180deg, transparent, #2bb8b0, #a0fff7, #2bb8b0, transparent); box-shadow: 0 0 10px #5ff5e8; }
+.qc-rail-l { left: 8px; } .qc-rail-r { right: 8px; }
+.qc-banner { margin: 0 auto; width: fit-content; max-width: 100%; padding: .2rem 1.4rem; border: 2px solid #b8892f; border-radius: 6px; background: linear-gradient(180deg, #2a1d0c, #120d1c); box-shadow: inset 0 0 0 2px #120d26, inset 0 0 0 3px #6b4f1d; }
+.qc-banner .qc-title { margin: 0; }
+.qc-illus-wrap { position: relative; border-radius: 10px; overflow: hidden; border: 2px solid #b8892f; box-shadow: 0 0 0 2px #120d26, 0 0 0 3px #6b4f1d, 0 0 24px rgba(95,245,232,.15); }
+.qc-illus { display: block; width: 100%; aspect-ratio: 2.4 / 1; object-fit: cover; object-position: center 25%; }
+@media (max-width: 640px) { .qc-illus { aspect-ratio: 16 / 10; } }
+.qc-box-main { position: relative; margin-top: -1.6rem; margin-left: 1rem; margin-right: 1rem; background: rgba(16,12,36,.94); font-size: .95rem; }
+.qc-footer { position: relative; }
+.qc-compass { position: absolute; left: .6rem; top: 50%; margin-top: -18px; font-size: 30px; line-height: 36px; }
+@media (max-width: 640px) { .qc-compass { display: none; } }

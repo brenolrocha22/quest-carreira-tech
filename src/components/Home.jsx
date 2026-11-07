@@ -1,5 +1,19 @@
 import { useState } from 'react';
 import { play } from '../lib/sound.js';
+import { PixelHero } from './PixelArt.jsx';
+import { AdSlot } from './Legal.jsx';
+import { CONFIG } from '../lib/backend.js';
+import { SKINS, HAIR_COLORS } from '../lib/pixelArt.js';
+
+// Elenco diverso de heróis na entrada da taverna
+const PARTY = [
+  { skin: SKINS[5].color, hair: 'cacheado', hairColor: HAIR_COLORS[0], robe: '#a78bfa' },
+  { skin: SKINS[1].color, hair: 'longo', hairColor: HAIR_COLORS[4], robe: '#38bdf8' },
+  { skin: SKINS[3].color, hair: 'lenco', hairColor: '#2f9e8f', robe: '#f472b6' },
+  { skin: SKINS[4].color, hair: 'trancas', hairColor: HAIR_COLORS[0], robe: '#fb923c' },
+  { skin: SKINS[2].color, hair: 'coque', hairColor: HAIR_COLORS[1], robe: '#34d399' },
+  { skin: SKINS[0].color, hair: 'curto', hairColor: HAIR_COLORS[3], robe: '#facc15' },
+];
 
 export default function Home({ initialName, hasResult, onStart, onContinue }) {
   const [name, setName] = useState(initialName || '');
@@ -15,7 +29,11 @@ export default function Home({ initialName, hasResult, onStart, onContinue }) {
 
   return (
     <section className="fade-in mx-auto flex max-w-xl flex-col items-center pt-6 text-center sm:pt-14">
-      <div className="emblem mb-6 h-24 w-24 text-5xl" aria-hidden="true">🍺</div>
+      <div className="mb-4 flex items-end justify-center gap-1 sm:gap-3" aria-hidden="true">
+        {PARTY.map(({ robe, ...av }, i) => (
+          <PixelHero key={i} avatar={av} robe={robe} size={i % 2 ? 44 : 52} alt="" className="hero-bob" />
+        ))}
+      </div>
       <p className="mb-2 font-display text-sm tracking-[.3em] text-faint">A TAVERNA DO DRAGÃO DIGITAL</p>
       <h1 className="title-glow mb-4 text-4xl font-black leading-tight sm:text-6xl">Quest de Carreira Tech</h1>
       <p className="mb-8 text-lg text-mist">
@@ -38,7 +56,7 @@ export default function Home({ initialName, hasResult, onStart, onContinue }) {
           className="w-full rounded-xl border border-gold-deep bg-night px-4 py-3 text-lg text-parchment placeholder:text-faint focus:border-ember focus:outline-none"
         />
         <p id="hero-help" className={`mt-2 min-h-5 text-sm ${error ? 'text-ember' : 'text-faint'}`} role={error ? 'alert' : undefined}>
-          {error || '14 desafios · cerca de 4 minutos · sem cadastro'}
+          {error || '14 desafios · cerca de 4 minutos'}
         </p>
         <button type="submit" className="btn-rune mt-4 w-full text-lg">⚔️ Iniciar Quest</button>
         {hasResult && (
@@ -47,8 +65,9 @@ export default function Home({ initialName, hasResult, onStart, onContinue }) {
           </button>
         )}
       </form>
-      <p className="mt-6 max-w-md text-sm text-faint">
-        Ao final você recebe um card colecionável com sua classe, a profissão real correspondente e uma trilha de missões para começar a aprender.
+      <AdSlot slot={CONFIG.adSlots.home} />
+      <p className="mt-6 max-w-md text-sm text-mist">
+        Ao final, você descobre a carreira em tecnologia que mais combina com você, com uma trilha de estudos e cursos gratuitos para começar.
       </p>
     </section>
   );

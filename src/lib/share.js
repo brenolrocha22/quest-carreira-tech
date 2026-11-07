@@ -1,12 +1,5 @@
 export const questUrl = () => window.location.origin + window.location.pathname;
 
-export function shareText(name, cls, short = false) {
-  const base = `⚔️ ${name} desbloqueou a classe ${cls.name} (${cls.profession}) na Quest de Carreira Tech!`;
-  return short
-    ? `${base} Qual é a sua classe? Descubra:`
-    : `${base}\n${cls.desc}\nE você, qual carreira da tecnologia combina com seu perfil? Faça a quest:`;
-}
-
 export async function nodeToBlob(node, opts = {}) {
   if (document.fonts?.ready) await document.fonts.ready;
   const { default: html2canvas } = await import('html2canvas'); // carregado só quando necessário
@@ -53,10 +46,10 @@ export async function copy(text) {
   }
 }
 
+// O texto já contém o link da quest.
 export const intents = {
-  x: (t, u) => `https://twitter.com/intent/tweet?text=${encodeURIComponent(t)}&url=${encodeURIComponent(u)}`,
-  threads: (t, u) => `https://www.threads.net/intent/post?text=${encodeURIComponent(`${t} ${u}`)}`,
-  // O LinkedIn aceita apenas a URL; o texto é copiado para a pessoa colar.
-  linkedin: (u) => `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(u)}`,
-  whatsapp: (t, u) => `https://wa.me/?text=${encodeURIComponent(`${t} ${u}`)}`,
+  x: (t) => `https://twitter.com/intent/tweet?text=${encodeURIComponent(t)}`,
+  threads: (t) => `https://www.threads.net/intent/post?text=${encodeURIComponent(t)}`,
+  whatsapp: (t) => `https://wa.me/?text=${encodeURIComponent(t)}`,
+  linkedin: (t) => `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(t)}`,
 };

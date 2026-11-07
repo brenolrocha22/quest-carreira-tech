@@ -25,6 +25,15 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+          VITE_AUTH_PROVIDERS: ${{ vars.VITE_AUTH_PROVIDERS }}
+          VITE_ADSENSE_CLIENT: ${{ vars.VITE_ADSENSE_CLIENT }}
+          VITE_ADSENSE_SLOT_HOME: ${{ vars.VITE_ADSENSE_SLOT_HOME }}
+          VITE_ADSENSE_SLOT_RESULT: ${{ vars.VITE_ADSENSE_SLOT_RESULT }}
+          VITE_ADSENSE_SLOT_TRAIL: ${{ vars.VITE_ADSENSE_SLOT_TRAIL }}
+          VITE_CONTACT_EMAIL: ${{ vars.VITE_CONTACT_EMAIL }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

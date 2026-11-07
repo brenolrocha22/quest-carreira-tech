@@ -290,4 +290,21 @@ export const CLASSES = [
   },
 ];
 
-export const CLASS_BY_ID = Object.fromEntries(CLASSES.map((c) => [c.id, c]));
+// Frase usada quando a classe aparece como subclasse ("com dom de Bardo: sabe apresentar e convencer")
+const GIFTS = {
+  artifice: 'transforma ideias em automações',
+  oraculo: 'enxerga padrões nos números',
+  ilusionista: 'dá forma visual às ideias',
+  ferreiro: 'constrói bases sólidas',
+  guardiao: 'protege o que importa',
+  arquiteto: 'mantém tudo de pé',
+  bardo: 'sabe apresentar e convencer',
+  alquimista: 'organiza o caos dos dados',
+  inspetor: 'enxerga detalhes que ninguém vê',
+  mensageiro: 'leva soluções ao bolso das pessoas',
+  vidente: 'entende o que as pessoas sentem',
+  mestre: 'faz o time andar junto',
+};
+CLASSES.forEach((c) => { c.gift = GIFTS[c.id]; });
+
+export const CLASS_BY_ID =Object.fromEntries(CLASSES.map((c) => [c.id, c]));
